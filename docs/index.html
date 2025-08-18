@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Políticas de Privacidad</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Políticas de Privacidad</h1>
+    <p class="lead">Políticas por aplicación — desarrollador independiente</p>
+  </header>
+
+  <main id="apps" class="container">
+    <!-- Las tarjetas se insertan por JS -->
+  </main>
+
+  <footer class="site-footer">
+    <small>Última actualización: <span id="last-update">2025-08-18</span> · Contacto: <a href="mailto:luisrc722@gmail.com">luisrc722@gmail.com</a></small>
+  </footer>
+
+  <script>
+    // Lista manual (rápida). Para automatizar, reemplaza este array con fetch('/policies.json')
+    /*
+    const apps = [
+      {
+        app_name: "Mi App Ejemplo",
+        slug: "mi-app-ejemplo",
+        platform: "android",
+        version: "0.1.0",
+        last_updated: "2025-08-18",
+        contact_email: "luisrc722@gmail.com"
+      }
+    ];
+    */
+    
+    fetch('policies.json').then(r => r.json()).then(apps => { /* renderizar */ })
+
+    
+    const container = document.getElementById('apps');
+
+    apps.forEach(a => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `
+        <h2>${a.app_name}</h2>
+        <p class="meta">Plataforma: ${a.platform} · Versión: ${a.version} · Actualizado: ${a.last_updated}</p>
+        <p><a href="../policies/apps/${a.slug}/PRIVACY.md">Ver política</a> · <a href="../policies/apps/${a.slug}/metadata.yaml">Metadatos</a></p>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
