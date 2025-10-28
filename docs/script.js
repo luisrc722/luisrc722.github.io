@@ -1,6 +1,6 @@
 /* ==========================================================
-   📜 script.js — Portafolio Luis Roldán Camacho
-   Bootstrap 5.3.8 + funciones utilitarias
+   🎬 script.js — Portafolio Luis Roldán Camacho (versión animada)
+   Animaciones cliente-side con IntersectionObserver + transiciones GPU
    ========================================================== */
 
 // ----------------------------------------------------------
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ----------------------------------------------------------
-// 🧭 2. Scroll suave para los enlaces del navbar
+// 🧭 2. Scroll suave entre secciones (navbar)
 // ----------------------------------------------------------
 document.querySelectorAll('a.nav-link[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -22,12 +22,11 @@ document.querySelectorAll('a.nav-link[href^="#"]').forEach((anchor) => {
     const target = document.querySelector(this.getAttribute("href"));
     if (target) {
       window.scrollTo({
-        top: target.offsetTop - 80, // ajuste por navbar fija
+        top: target.offsetTop - 80,
         behavior: "smooth",
       });
     }
 
-    // Cerrar menú en versión móvil tras hacer clic
     const navbarCollapse = document.querySelector(".navbar-collapse");
     if (navbarCollapse.classList.contains("show")) {
       new bootstrap.Collapse(navbarCollapse).toggle();
@@ -36,7 +35,7 @@ document.querySelectorAll('a.nav-link[href^="#"]').forEach((anchor) => {
 });
 
 // ----------------------------------------------------------
-// 🔍 3. Resaltado dinámico de sección activa (ScrollSpy custom)
+// 🔍 3. Resaltado dinámico de sección activa (ScrollSpy personalizado)
 // ----------------------------------------------------------
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section[id]");
@@ -46,7 +45,6 @@ window.addEventListener("scroll", () => {
     const top = section.offsetTop;
     const height = section.offsetHeight;
     const id = section.getAttribute("id");
-
     const link = document.querySelector(`.nav-link[href="#${id}"]`);
     if (scrollPos >= top && scrollPos < top + height) {
       link?.classList.add("active");
@@ -57,7 +55,7 @@ window.addEventListener("scroll", () => {
 });
 
 // ----------------------------------------------------------
-// ✨ 4. Microefecto en enlaces externos
+// ✨ 4. Microefecto hover en enlaces externos
 // ----------------------------------------------------------
 document.querySelectorAll('a[target="_blank"]').forEach((link) => {
   link.addEventListener("mouseenter", () => {
@@ -70,6 +68,45 @@ document.querySelectorAll('a[target="_blank"]').forEach((link) => {
 });
 
 // ----------------------------------------------------------
-// 📢 5. Log de diagnóstico (opcional)
+// 🪄 5. Animaciones cliente-side (IntersectionObserver)
 // ----------------------------------------------------------
-console.log("✅ Portafolio cargado correctamente — Bootstrap 5.3.8 activo.");
+
+// Configuración de las animaciones (duración y umbral)
+const observerOptions = {
+  threshold: 0.2,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+// Función para aplicar clases de animación al entrar en viewport
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target); // deja de observar para mejorar rendimiento
+    }
+  });
+}, observerOptions);
+
+// Selecciona todos los elementos animables
+const animatedElements = document.querySelectorAll(
+  ".fade-up, .fade-left, .fade-right"
+);
+
+animatedElements.forEach((el) => observer.observe(el));
+
+// ----------------------------------------------------------
+// ⚡ 6. Efecto inicial de carga (Hero + Navbar)
+// ----------------------------------------------------------
+window.addEventListener("load", () => {
+  const hero = document.querySelector("#inicio");
+  const navbar = document.querySelector("nav.navbar");
+
+  if (hero) {
+    hero.classList.add("fade-in");
+  }
+  if (navbar) {
+    navbar.classList.add("fade-down");
+  }
+
+  console.log("✅ Animaciones inicializadas correctamente (cliente-side).");
+});
