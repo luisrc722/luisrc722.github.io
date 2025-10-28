@@ -1,9 +1,13 @@
 /* ==========================================================
    Luis Roldán Camacho — Portafolio (luisrc722.github.io)
    Archivo: styles.css
-   Descripción: Estilos base para el portafolio personal.
+   Descripción: Estilos globales del sitio (modo claro/oscuro,
+   tipografía, grid, tarjetas, botones, y layout responsive)
    ========================================================== */
 
+/* ======================
+   🎨 Variables de color
+   ====================== */
 :root {
   --bg: #0b0b0c;
   --surface: #121214;
@@ -16,115 +20,350 @@
   --danger: #f87171;
   --ring: 0 0 0 3px rgba(125, 211, 252, 0.35);
   --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   --maxw: 1120px;
 }
 
+/* Modo claro automático */
 @media (prefers-color-scheme: light) {
   :root {
     --bg: #f6f7f8;
     --surface: #ffffff;
     --text: #171717;
     --muted: #505050;
-    --shadow: 0 10px 30px rgba(0,0,0,.08);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     --ring: 0 0 0 3px rgba(79, 70, 229, 0.25);
   }
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+/* ======================
+   🧱 Base tipográfica
+   ====================== */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background: radial-gradient(1200px 600px at 80% -10%, rgba(167,139,250,.15), transparent 60%),
-              radial-gradient(900px 600px at 0% 110%, rgba(125,211,252,.12), transparent 60%),
-              var(--bg);
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(167, 139, 250, 0.15), transparent 60%),
+    radial-gradient(900px 600px at 0% 110%, rgba(125, 211, 252, 0.12), transparent 60%),
+    var(--bg);
   line-height: 1.6;
 }
 
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
+/* Enlaces e imágenes */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
 
-.container { width: min(100%, var(--maxw)); margin-inline: auto; padding-inline: 1rem; }
+/* ======================
+   🧩 Layout general
+   ====================== */
+.container {
+  width: min(100%, var(--maxw));
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
 
-/* Header */
+/* ======================
+   🔝 Header / Menú
+   ====================== */
 header {
-  position: sticky; top: 0; z-index: 50;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   backdrop-filter: blur(8px);
   background: color-mix(in oklab, var(--bg) 70%, transparent);
   border-bottom: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
 }
-.nav { display: flex; align-items: center; justify-content: space-between; padding: .75rem 0; }
-.brand { display: flex; align-items: center; gap: .75rem; font-weight: 700; letter-spacing: .2px; }
-.brand svg { width: 28px; height: 28px; }
-.menu { display: flex; gap: 1rem; }
-.menu a { opacity: .9; }
-.menu a:hover { opacity: 1; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
-.cta {
-  padding: .55rem .9rem; border-radius: 999px; background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
 }
-.cta:hover { outline: var(--ring); }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.brand svg {
+  width: 28px;
+  height: 28px;
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+.menu a {
+  opacity: 0.9;
+}
+.menu a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.cta {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+}
+.cta:hover {
+  outline: var(--ring);
+}
 
-/* Hero */
-.hero { padding: 5rem 0 3rem; }
-.hero h1 { font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem); line-height: 1.15; margin: 0 0 .8rem; }
-.hero p { max-width: 70ch; color: var(--muted); margin: 0 0 1.2rem; }
-.badges { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
-.badge { padding: .35rem .6rem; border-radius: 999px; background: color-mix(in oklab, var(--surface) 90%, transparent); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); font-size: .9rem; }
+/* ======================
+   🚀 Hero principal
+   ====================== */
+.hero {
+  padding: 5rem 0 3rem;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.15;
+  margin: 0 0 0.8rem;
+}
+.hero p {
+  max-width: 70ch;
+  color: var(--muted);
+  margin: 0 0 1.2rem;
+}
 
-/* Section */
-section { padding: 3rem 0; }
-section header h2 { font-size: clamp(1.2rem, .8vw + 1rem, 1.6rem); margin: 0 0 .5rem; }
-section header p { color: var(--muted); margin: 0 0 1.6rem; max-width: 70ch; }
+/* Badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.badge {
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  font-size: 0.9rem;
+}
 
-/* Grid */
-.grid { display: grid; gap: 1rem; }
-@media (min-width: 768px) { .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 640px) { .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* ======================
+   🧱 Secciones
+   ====================== */
+section {
+  padding: 3rem 0;
+}
+section header h2 {
+  font-size: clamp(1.2rem, 0.8vw + 1rem, 1.6rem);
+  margin: 0 0 0.5rem;
+}
+section header p {
+  color: var(--muted);
+  margin: 0 0 1.6rem;
+  max-width: 70ch;
+}
 
-/* Cards */
-.card { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius); box-shadow: var(--shadow); overflow: clip; display: flex; flex-direction: column; }
-.card .body { padding: 1rem 1rem 1.25rem; display: grid; gap: .5rem; }
-.kicker { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
-.pill { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; padding: .35rem .6rem; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); background: color-mix(in oklab, var(--surface) 90%, transparent); }
+/* ======================
+   🧩 Grillas
+   ====================== */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
-/* Listas */
-.list { display: grid; gap: .6rem; margin: 0; padding-left: 1rem; }
-.list li { margin-left: .25rem; }
+/* ======================
+   🪟 Tarjetas (Cards)
+   ====================== */
+.card {
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+.card .body {
+  padding: 1rem 1rem 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.kicker {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+  transition: background 0.2s ease;
+}
+.pill:hover {
+  background: color-mix(in oklab, var(--accent) 30%, var(--surface));
+  color: #fff;
+}
 
-/* Footer */
-footer { border-top: 1px solid color-mix(in oklab, var(--text) 12%, transparent); background: color-mix(in oklab, var(--bg) 85%, transparent); }
-.foot { display: grid; gap: .5rem; padding: 1.25rem 0; color: var(--muted); }
-.foot a { color: var(--text); }
+/* ======================
+   🗂 Listas
+   ====================== */
+.list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding-left: 1rem;
+}
+.list li {
+  margin-left: 0.25rem;
+}
 
-/* Utilidades */
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-.row { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; }
-.between { justify-content: space-between; }
-.center { align-items: center; }
-.ghost { opacity: .9; }
-.ghost:hover { opacity: 1; }
-.muted { color: var(--muted); }
-.nowrap { white-space: nowrap; }
-.mt-2 { margin-top: .5rem; }
-.mt-3 { margin-top: .75rem; }
+/* ======================
+   ⚓ Footer
+   ====================== */
+footer {
+  border-top: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+}
+.foot {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.25rem 0;
+  color: var(--muted);
+}
+.foot a {
+  color: var(--text);
+}
+
+/* ======================
+   🧩 Utilidades
+   ====================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.between {
+  justify-content: space-between;
+}
+.center {
+  align-items: center;
+}
+.ghost {
+  opacity: 0.9;
+}
+.ghost:hover {
+  opacity: 1;
+}
+.muted {
+  color: var(--muted);
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Espaciado rápido */
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
 .mt-4 { margin-top: 1rem; }
 .mt-6 { margin-top: 1.5rem; }
 .mb-0 { margin-bottom: 0; }
-.mb-2 { margin-bottom: .5rem; }
-.py-0 { padding-top: 0; padding-bottom: 0; }
-.py-1 { padding-block: .25rem; }
-.py-2 { padding-block: .5rem; }
-.py-3 { padding-block: .75rem; }
-.px-2 { padding-inline: .5rem; }
-.px-3 { padding-inline: .75rem; }
-.px-4 { padding-inline: 1rem; }
-.shadow-none { box-shadow: none; }
-.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1rem; border-radius: 10px; border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 60%, transparent), var(--surface)); box-shadow: var(--shadow); }
-.btn:hover { outline: var(--ring); }
-.btn-primary { background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 35%, var(--surface)), var(--surface)); }
-.btn-ghost { background: transparent; box-shadow: none; }
+.mb-2 { margin-bottom: 0.5rem; }
 
-/* Focus visible */
-:focus-visible { outline: var(--ring); border-radius: 8px; }
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  background: linear-gradient(180deg,
+    color-mix(in oklab, var(--surface) 60%, transparent),
+    var(--surface));
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.btn:hover {
+  outline: var(--ring);
+  transform: translateY(-2px);
+}
+.btn-primary {
+  background: linear-gradient(180deg,
+    color-mix(in oklab, var(--primary) 35%, var(--surface)),
+    var(--surface));
+}
+.btn-ghost {
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid color-mix(in oklab, var(--text) 15%, transparent);
+}
+
+/* ======================
+   🧭 Accesibilidad
+   ====================== */
+:focus-visible {
+  outline: var(--ring);
+  border-radius: 8px;
+  scroll-margin-top: 5rem;
+}
+
+/* ======================
+   📱 Responsividad
+   ====================== */
+@media (max-width: 768px) {
+  .grid-cols-3, .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  header .menu {
+    gap: 0.75rem;
+    font-size: 0.95rem;
+  }
+  .hero {
+    padding-top: 3.5rem;
+  }
+}
