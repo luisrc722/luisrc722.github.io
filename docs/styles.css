@@ -256,3 +256,36 @@ img {
     transform: translateY(0);
   }
 }
+
+/* ==========================================================
+   ⚡ Transiciones SPA-like (cliente-side)
+   ========================================================== */
+
+section {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Efecto de entrada */
+.fade-in-section {
+  animation: sectionFadeIn 0.8s ease forwards;
+}
+
+@keyframes sectionFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
