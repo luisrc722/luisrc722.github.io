@@ -1,272 +1,224 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
   <!-- ==========================================================
-       🧠 HEAD — Metadatos, SEO, Open Graph y Recursos Globales
+       🌐 Luis Roldán Camacho — Portafolio Profesional
+       Versión: Bootstrap 5.3.8 (CDN oficial)
        ========================================================== -->
   <head>
-    <!-- Codificación y escalabilidad -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portafolio profesional de Luis Roldán Camacho: desarrollo web, e-commerce headless, WordPress/WooCommerce REST, Next.js, TypeScript, Bootstrap y animaciones modernas.">
 
-    <!-- SEO básico -->
-    <meta name="description" content="Portafolio profesional de Luis Roldán Camacho: desarrollo web, e-commerce headless, WordPress/WooCommerce REST, Next.js, TypeScript, animaciones avanzadas y 3D.">
-    <link rel="canonical" href="https://luisrc722.github.io/">
-
-    <!-- Open Graph / Twitter Card -->
-    <meta property="og:type" content="website">
+    <!-- 🧠 SEO / Open Graph -->
     <meta property="og:title" content="Luis Roldán Camacho — Portafolio">
-    <meta property="og:description" content="Desarrollo web y e-commerce headless (WordPress/WooCommerce + API REST), Next.js 15, Tailwind, GSAP, Framer Motion, Lenis.">
-    <meta property="og:url" content="https://luisrc722.github.io/">
+    <meta property="og:description" content="Desarrollo web y e-commerce headless con tecnologías modernas y enfoque en rendimiento.">
     <meta property="og:image" content="https://luisrc722.github.io/docs/assets/og-cover.png">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luisrc722.github.io/">
 
-    <!-- Íconos -->
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-    <link rel="alternate icon" href="./assets/favicon.png">
+    <title>Luis Roldán Camacho — Portafolio</title>
 
-    <!-- Hoja de estilos principal -->
+    <!-- ✅ Bootstrap 5.3.8 CSS (CDN oficial con integridad) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+
+    <!-- 🎨 CSS personalizado -->
     <link rel="stylesheet" href="./styles.css">
 
-    <!-- Color del tema en móviles -->
+    <!-- Íconos y favicons -->
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     <meta name="theme-color" content="#0b0b0c">
-
-    <!-- Datos estructurados Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Luis Roldán Camacho",
-      "url": "https://luisrc722.github.io/",
-      "sameAs": [
-        "https://github.com/luisrc722",
-        "https://www.linkedin.com/in/luis-roldan-camacho/"
-      ],
-      "jobTitle": "Desarrollador Web / E-commerce Headless",
-      "knowsAbout": [
-        "Next.js 15", "TypeScript", "TailwindCSS", "GSAP", "Framer Motion", "Lenis",
-        "WordPress", "WooCommerce", "API REST", "Headless CMS", "3D Visualization"
-      ]
-    }
-    </script>
-
-    <!-- Título de pestaña -->
-    <title>Luis Roldán Camacho — Portafolio</title>
   </head>
 
-  <!-- ==========================================================
-       💻 BODY — Estructura visual y contenido principal
-       ========================================================== -->
   <body>
-
-    <!-- ======================
-         🔝 HEADER / NAVEGACIÓN
-         ====================== -->
-    <header>
-      <div class="container nav">
-        <a class="brand" href="#" aria-label="Inicio">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M3 12h5l2-3 3 6 2-3h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-          <span>luisrc722</span>
-        </a>
-        <nav class="menu" aria-label="Navegación principal">
-          <a href="#proyectos" class="ghost">Proyectos</a>
-          <a href="#experiencia" class="ghost">Experiencia</a>
-          <a href="#contacto" class="ghost">Contacto</a>
-          <a class="cta" href="https://github.com/luisrc722" target="_blank" rel="noopener">GitHub</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- ======================
-         🚀 HERO / PRESENTACIÓN
-         ====================== -->
-    <section class="hero" id="inicio">
+    <!-- ==========================================================
+         🔝 NAVBAR / MENÚ DE NAVEGACIÓN
+         ========================================================== -->
+    <nav class="navbar navbar-expand-md bg-dark border-bottom border-secondary-subtle sticky-top" data-bs-theme="dark">
       <div class="container">
-        <h1>Desarrollo web y e-commerce headless con enfoque en rendimiento, seguridad y DX.</h1>
-        <p>
-          Soy <strong>Luis Roldán Camacho</strong>. Construyo soluciones modernas para tiendas en línea y
-          plataformas de contenido: <em>WordPress/WooCommerce (Headless)</em> con API REST, front-ends basados en <em>Next.js 15 + TypeScript</em>, diseño accesible y animaciones de alto nivel. También experimento con visualización 3D.
-        </p>
-
-        <!-- Botones principales -->
-        <div class="row mt-3">
-          <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
-          <a class="btn btn-ghost" href="./cv/Luis_Roldan_CV.pdf" target="_blank" rel="noopener">Descargar CV</a>
+        <a class="navbar-brand fw-bold" href="#">
+          <img src="./assets/favicon.svg" alt="Logo" width="28" height="28" class="me-2">
+          luisrc722
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            <li class="nav-item"><a class="btn btn-primary ms-md-3" href="https://github.com/luisrc722" target="_blank">GitHub</a></li>
+          </ul>
         </div>
+      </div>
+    </nav>
 
-        <!-- Tecnologías principales -->
-        <div class="badges">
-          <span class="badge">Next.js 15</span>
-          <span class="badge">TypeScript</span>
-          <span class="badge">WooCommerce REST</span>
-          <span class="badge">GSAP / Framer Motion</span>
-          <span class="badge">Accesibilidad</span>
-          <span class="badge">SEO Técnico</span>
+    <!-- ==========================================================
+         🚀 SECCIÓN HERO / PRESENTACIÓN
+         ========================================================== -->
+    <section id="inicio" class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-8 mx-auto">
+          <h1 class="fw-bold mb-4">Desarrollo web y e-commerce headless con enfoque en rendimiento, seguridad y experiencia de desarrollador.</h1>
+          <p class="lead text-secondary mb-4">
+            Soy <strong>Luis Roldán Camacho</strong>, desarrollador especializado en integraciones
+            <em>WordPress/WooCommerce Headless</em> y frontends modernos con <em>Next.js + TypeScript</em>.
+            Combino diseño funcional, animaciones profesionales y optimización técnica.
+          </p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="#proyectos" class="btn btn-primary px-4">Ver proyectos</a>
+            <a href="./cv/Luis_Roldan_CV.pdf" target="_blank" class="btn btn-outline-light px-4">Descargar CV</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================
+    <!-- ==========================================================
          🧩 PROYECTOS DESTACADOS
-         ====================== -->
-    <section id="proyectos">
+         ========================================================== -->
+    <section id="proyectos" class="py-5 bg-body-secondary">
       <div class="container">
-        <header>
-          <h2>Proyectos destacados</h2>
-          <p>Selección de repositorios y trabajos relacionados con e-commerce headless, front-end moderno y utilidades.</p>
-        </header>
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Proyectos destacados</h2>
+          <p class="text-secondary">Selección de trabajos relacionados con e-commerce headless, UI moderna y desarrollo de herramientas.</p>
+        </div>
 
-        <div class="grid grid-cols-3">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
           <!-- Proyecto 1 -->
-          <article class="card">
-            <img alt="Barbarian E-commerce" src="./assets/projects/barbarian-cover.jpg" onerror="this.style.display='none'">
-            <div class="body">
-              <div class="kicker">E-commerce Headless</div>
-              <h3 class="mb-0">Barbarian</h3>
-              <p class="muted mb-0">Plataforma para equipo de gimnasio. Backend WordPress + WooCommerce (REST), front-end moderno, enfoque en rendimiento y seguridad.</p>
-              <div class="row mt-3">
-                <a class="pill" href="https://barbarian.com.mx" target="_blank" rel="noopener">Sitio</a>
-                <a class="pill" href="https://github.com/andrvvv/BARBARIAN" target="_blank" rel="noopener">Repo</a>
+          <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="./assets/projects/barbarian.jpg" class="card-img-top" alt="Barbarian E-commerce">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Barbarian</h5>
+                <p class="card-text text-secondary">
+                  E-commerce headless para equipo de gimnasio. Backend WordPress + WooCommerce REST, frontend modular y rendimiento optimizado.
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0 d-flex gap-2">
+                <a href="https://barbarian.com.mx" class="btn btn-sm btn-primary" target="_blank">Sitio</a>
+                <a href="https://github.com/andrvvv/BARBARIAN" class="btn btn-sm btn-outline-light" target="_blank">Repositorio</a>
               </div>
             </div>
-          </article>
+          </div>
 
           <!-- Proyecto 2 -->
-          <article class="card">
-            <img alt="Utilidades Python" src="./assets/projects/python-utils.jpg" onerror="this.style.display='none'">
-            <div class="body">
-              <div class="kicker">Utilidades</div>
-              <h3 class="mb-0">pythontest</h3>
-              <p class="muted mb-0">Pequeños programas de conversión y pruebas. Enfoque en scripts prácticos y experimentación.</p>
-              <div class="row mt-3">
-                <a class="pill" href="https://github.com/luisrc722/pythontest" target="_blank" rel="noopener">Repositorio</a>
+          <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="./assets/projects/python-utils.jpg" class="card-img-top" alt="Utilidades Python">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">pythontest</h5>
+                <p class="card-text text-secondary">
+                  Colección de scripts y pruebas experimentales en Python para automatización y conversión de archivos.
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0">
+                <a href="https://github.com/luisrc722/pythontest" class="btn btn-sm btn-outline-light" target="_blank">Repositorio</a>
               </div>
             </div>
-          </article>
+          </div>
 
           <!-- Proyecto 3 -->
-          <article class="card">
-            <img alt="Sitio personal" src="./assets/projects/site-cover.jpg" onerror="this.style.display='none'">
-            <div class="body">
-              <div class="kicker">Web Personal</div>
-              <h3 class="mb-0">luisrc722.github.io</h3>
-              <p class="muted mb-0">Sitio estático optimizado, accesible y con buenas prácticas SEO. Contenido técnico y bitácora de proyectos.</p>
-              <div class="row mt-3">
-                <a class="pill" href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" rel="noopener">Repositorio</a>
-                <span class="pill" aria-disabled="true">Actual</span>
+          <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="./assets/projects/site-cover.jpg" class="card-img-top" alt="Sitio personal">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">luisrc722.github.io</h5>
+                <p class="card-text text-secondary">
+                  Sitio personal alojado en GitHub Pages. Presenta portafolio técnico, enlaces profesionales y documentación pública.
+                </p>
               </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================
-         ⚙️ EXPERIENCIA / STACK
-         ====================== -->
-    <section id="experiencia">
-      <div class="container">
-        <header>
-          <h2>Experiencia y stack</h2>
-          <p>Trabajo con tecnologías modernas orientadas a rendimiento, seguridad y mantenibilidad, siguiendo principios SOLID y patrones de arquitectura.</p>
-        </header>
-
-        <div class="grid grid-cols-2">
-          <article class="card">
-            <div class="body">
-              <h3 class="mb-0">Backend Headless</h3>
-              <ul class="list">
-                <li>WordPress + WooCommerce (REST), endpoints personalizados y hardening básico.</li>
-                <li>Integración con APIs logísticas nacionales y cálculo de envío por peso/volumen.</li>
-                <li>Optimización de CORS, seguridad de endpoints y auditoría mínima.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="body">
-              <h3 class="mb-0">Frontend Moderno</h3>
-              <ul class="list">
-                <li>Next.js 15 (App Router), TypeScript, arquitectura modular y DX.</li>
-                <li>TailwindCSS, diseño accesible, tokens y theming.</li>
-                <li>Animaciones con GSAP/Framer Motion y scroll suave con Lenis.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="body">
-              <h3 class="mb-0">Calidad y despliegue</h3>
-              <ul class="list">
-                <li>Convenciones: Conventional Commits, documentación clara y plantillas.</li>
-                <li>Pruebas: linter, verificación manual y validaciones W3C.</li>
-                <li>Hosting estático (GitHub Pages) optimizado para SEO.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="body">
-              <h3 class="mb-0">Exploración 3D</h3>
-              <ul class="list">
-                <li>Visualización de modelos (Three.js), exportación GLTF/GLB.</li>
-                <li>Mapeos de color y propiedades; análisis simple de mallas.</li>
-                <li>Integración futura con catálogos de producto.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================
-         ✉️ CONTACTO / REDES
-         ====================== -->
-    <section id="contacto">
-      <div class="container">
-        <header>
-          <h2>Contacto</h2>
-          <p>Abierto a colaborar en proyectos web y e-commerce. Respuesta habitual en 24–48 h.</p>
-        </header>
-
-        <div class="card">
-          <div class="body">
-            <div class="row between center">
-              <div>
-                <div class="kicker">Disponibilidad</div>
-                <p class="mb-0 muted">Remoto o híbrido · México (CDMX)</p>
-              </div>
-              <div class="row">
-                <a class="btn" href="mailto:luisrc722@users.noreply.github.com">Enviar correo</a>
-                <a class="btn" href="https://www.linkedin.com/in/luis-roldan-camacho/" target="_blank" rel="noopener">LinkedIn</a>
+              <div class="card-footer bg-transparent border-0">
+                <span class="badge bg-primary">Actual</span>
               </div>
             </div>
           </div>
         </div>
-
-        <p class="muted mt-4">
-          También puedes abrir un issue en
-          <a href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" rel="noopener">este repositorio</a>.
-        </p>
       </div>
     </section>
 
-    <!-- ======================
-         ⚓ FOOTER / CRÉDITOS
-         ====================== -->
-    <footer>
-      <div class="container foot">
-        <div class="row between center">
-          <small>© <span id="y"></span> Luis Roldán Camacho.</small>
-          <small class="muted">Hecho con HTML, CSS y JS nativo · GitHub Pages</small>
+    <!-- ==========================================================
+         ⚙️ EXPERIENCIA / STACK TÉCNICO
+         ========================================================== -->
+    <section id="experiencia" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Experiencia y stack</h2>
+          <p class="text-secondary">
+            Trabajo con tecnologías modernas orientadas a rendimiento, mantenibilidad y seguridad, aplicando principios SOLID y arquitectura modular.
+          </p>
         </div>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Backend Headless</h5>
+                <ul class="list-unstyled">
+                  <li>WordPress + WooCommerce REST API</li>
+                  <li>Endpoints personalizados y seguridad CORS</li>
+                  <li>Integración logística nacional y auditoría</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Frontend Moderno</h5>
+                <ul class="list-unstyled">
+                  <li>Next.js 15, TypeScript y TailwindCSS</li>
+                  <li>Animaciones GSAP y Framer Motion</li>
+                  <li>Diseño accesible, escalable y responsivo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ✉️ CONTACTO / REDES
+         ========================================================== -->
+    <section id="contacto" class="py-5 bg-body-secondary">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-4">Contacto</h2>
+        <p class="text-secondary mb-5">
+          Abierto a colaboraciones en desarrollo web, optimización y proyectos de e-commerce.  
+          Respondo normalmente dentro de 24-48 h.
+        </p>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="mailto:luisrc722@users.noreply.github.com" class="btn btn-primary px-4">Enviar correo</a>
+          <a href="https://www.linkedin.com/in/luis-roldan-camacho/" target="_blank" class="btn btn-outline-light px-4">LinkedIn</a>
+          <a href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" class="btn btn-outline-secondary px-4">Repositorio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ⚓ FOOTER
+         ========================================================== -->
+    <footer class="py-4 border-top border-secondary-subtle">
+      <div class="container text-center text-secondary small">
+        © <span id="y"></span> Luis Roldán Camacho — Hecho con Bootstrap 5.3.8 y pasión por el código limpio.
       </div>
     </footer>
 
-    <!-- ======================
-         📜 SCRIPT EXTERNO
-         ====================== -->
+    <!-- ==========================================================
+         📜 SCRIPTS
+         ========================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+
     <script src="./script.js" defer></script>
   </body>
 </html>
