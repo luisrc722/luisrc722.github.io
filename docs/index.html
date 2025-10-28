@@ -2,17 +2,19 @@
 <html lang="es" data-bs-theme="dark">
   <!-- ==========================================================
        🌐 Luis Roldán Camacho — Portafolio Profesional
-       Versión: Bootstrap 5.3.8 (CDN oficial)
+       Versión con animaciones + imágenes desde CDN
        ========================================================== -->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portafolio profesional de Luis Roldán Camacho: desarrollo web, e-commerce headless, WordPress/WooCommerce REST, Next.js, TypeScript, Bootstrap y animaciones modernas.">
+    <meta name="description"
+          content="Portafolio profesional de Luis Roldán Camacho: desarrollo web, e-commerce headless, WordPress/WooCommerce REST, Next.js, TypeScript, Bootstrap y animaciones modernas.">
 
     <!-- 🧠 SEO / Open Graph -->
     <meta property="og:title" content="Luis Roldán Camacho — Portafolio">
-    <meta property="og:description" content="Desarrollo web y e-commerce headless con tecnologías modernas y enfoque en rendimiento.">
-    <meta property="og:image" content="https://luisrc722.github.io/docs/assets/og-cover.png">
+    <meta property="og:description"
+          content="Desarrollo web y e-commerce headless con tecnologías modernas y enfoque en rendimiento.">
+    <meta property="og:image" content="https://picsum.photos/1200/630?grayscale">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://luisrc722.github.io/">
 
@@ -27,24 +29,25 @@
     <!-- 🎨 CSS personalizado -->
     <link rel="stylesheet" href="./styles.css">
 
-    <!-- Íconos y favicons -->
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <!-- Íconos -->
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4bb.svg" type="image/svg+xml">
     <meta name="theme-color" content="#0b0b0c">
   </head>
 
   <body>
     <!-- ==========================================================
-         🔝 NAVBAR / MENÚ DE NAVEGACIÓN
+         🔝 NAVBAR
          ========================================================== -->
-    <nav class="navbar navbar-expand-md bg-dark border-bottom border-secondary-subtle sticky-top" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md bg-dark border-bottom border-secondary-subtle sticky-top fade-down">
       <div class="container">
         <a class="navbar-brand fw-bold" href="#">
-          <img src="./assets/favicon.svg" alt="Logo" width="28" height="28" class="me-2">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4bb.svg"
+               alt="Logo" width="28" height="28" class="me-2">
           luisrc722
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Alternar navegación">
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Alternar navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -60,18 +63,21 @@
     </nav>
 
     <!-- ==========================================================
-         🚀 SECCIÓN HERO / PRESENTACIÓN
+         🚀 HERO / PRESENTACIÓN
          ========================================================== -->
-    <section id="inicio" class="py-5 text-center container">
+    <section id="inicio" class="py-5 text-center container fade-in">
       <div class="row py-lg-5">
         <div class="col-lg-8 mx-auto">
-          <h1 class="fw-bold mb-4">Desarrollo web y e-commerce headless con enfoque en rendimiento, seguridad y experiencia de desarrollador.</h1>
-          <p class="lead text-secondary mb-4">
-            Soy <strong>Luis Roldán Camacho</strong>, desarrollador especializado en integraciones
-            <em>WordPress/WooCommerce Headless</em> y frontends modernos con <em>Next.js + TypeScript</em>.
-            Combino diseño funcional, animaciones profesionales y optimización técnica.
+          <h1 class="fw-bold mb-4 fade-up">
+            Desarrollo web y e-commerce headless con enfoque en rendimiento,
+            seguridad y experiencia de desarrollador.
+          </h1>
+          <p class="lead text-secondary mb-4 fade-up">
+            Soy <strong>Luis Roldán Camacho</strong>, desarrollador especializado en
+            <em>WordPress/WooCommerce Headless</em> y frontends modernos con
+            <em>Next.js + TypeScript</em>.
           </p>
-          <div class="d-flex justify-content-center gap-3">
+          <div class="d-flex justify-content-center gap-3 fade-up">
             <a href="#proyectos" class="btn btn-primary px-4">Ver proyectos</a>
             <a href="./cv/Luis_Roldan_CV.pdf" target="_blank" class="btn btn-outline-light px-4">Descargar CV</a>
           </div>
@@ -80,20 +86,22 @@
     </section>
 
     <!-- ==========================================================
-         🧩 PROYECTOS DESTACADOS
+         🧩 PROYECTOS
          ========================================================== -->
     <section id="proyectos" class="py-5 bg-body-secondary">
       <div class="container">
-        <div class="text-center mb-5">
+        <div class="text-center mb-5 fade-right">
           <h2 class="fw-bold">Proyectos destacados</h2>
-          <p class="text-secondary">Selección de trabajos relacionados con e-commerce headless, UI moderna y desarrollo de herramientas.</p>
+          <p class="text-secondary">
+            Selección de trabajos relacionados con e-commerce headless,
+            UI moderna y desarrollo de herramientas.
+          </p>
         </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
-          <!-- Proyecto 1 -->
-          <div class="col">
+          <div class="col fade-up">
             <div class="card h-100 shadow-sm border-0">
-              <img src="./assets/projects/barbarian.jpg" class="card-img-top" alt="Barbarian E-commerce">
+              <img src="https://picsum.photos/600/400?random=1" class="card-img-top" alt="Barbarian E-commerce">
               <div class="card-body">
                 <h5 class="card-title fw-bold">Barbarian</h5>
                 <p class="card-text text-secondary">
@@ -107,10 +115,9 @@
             </div>
           </div>
 
-          <!-- Proyecto 2 -->
-          <div class="col">
+          <div class="col fade-up">
             <div class="card h-100 shadow-sm border-0">
-              <img src="./assets/projects/python-utils.jpg" class="card-img-top" alt="Utilidades Python">
+              <img src="https://picsum.photos/600/400?random=2" class="card-img-top" alt="Utilidades Python">
               <div class="card-body">
                 <h5 class="card-title fw-bold">pythontest</h5>
                 <p class="card-text text-secondary">
@@ -123,10 +130,9 @@
             </div>
           </div>
 
-          <!-- Proyecto 3 -->
-          <div class="col">
+          <div class="col fade-up">
             <div class="card h-100 shadow-sm border-0">
-              <img src="./assets/projects/site-cover.jpg" class="card-img-top" alt="Sitio personal">
+              <img src="https://picsum.photos/600/400?random=3" class="card-img-top" alt="Sitio personal">
               <div class="card-body">
                 <h5 class="card-title fw-bold">luisrc722.github.io</h5>
                 <p class="card-text text-secondary">
@@ -143,19 +149,20 @@
     </section>
 
     <!-- ==========================================================
-         ⚙️ EXPERIENCIA / STACK TÉCNICO
+         ⚙️ EXPERIENCIA / STACK
          ========================================================== -->
     <section id="experiencia" class="py-5">
       <div class="container">
-        <div class="text-center mb-5">
+        <div class="text-center mb-5 fade-left">
           <h2 class="fw-bold">Experiencia y stack</h2>
           <p class="text-secondary">
-            Trabajo con tecnologías modernas orientadas a rendimiento, mantenibilidad y seguridad, aplicando principios SOLID y arquitectura modular.
+            Tecnologías orientadas a rendimiento, mantenibilidad y seguridad,
+            aplicando principios SOLID y arquitectura modular.
           </p>
         </div>
 
         <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
+          <div class="col fade-up">
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h5 class="card-title fw-bold">Backend Headless</h5>
@@ -168,7 +175,7 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col fade-up">
             <div class="card h-100 shadow-sm">
               <div class="card-body">
                 <h5 class="card-title fw-bold">Frontend Moderno</h5>
@@ -185,14 +192,13 @@
     </section>
 
     <!-- ==========================================================
-         ✉️ CONTACTO / REDES
+         ✉️ CONTACTO
          ========================================================== -->
     <section id="contacto" class="py-5 bg-body-secondary">
-      <div class="container text-center">
+      <div class="container text-center fade-up">
         <h2 class="fw-bold mb-4">Contacto</h2>
         <p class="text-secondary mb-5">
-          Abierto a colaboraciones en desarrollo web, optimización y proyectos de e-commerce.  
-          Respondo normalmente dentro de 24-48 h.
+          Abierto a colaboraciones en desarrollo web, optimización y proyectos de e-commerce.
         </p>
 
         <div class="d-flex justify-content-center gap-3 flex-wrap">
@@ -206,7 +212,7 @@
     <!-- ==========================================================
          ⚓ FOOTER
          ========================================================== -->
-    <footer class="py-4 border-top border-secondary-subtle">
+    <footer class="py-4 border-top border-secondary-subtle fade-up">
       <div class="container text-center text-secondary small">
         © <span id="y"></span> Luis Roldán Camacho — Hecho con Bootstrap 5.3.8 y pasión por el código limpio.
       </div>
