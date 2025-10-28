@@ -1,72 +1,75 @@
-// ==========================================================
-// Luis Roldán Camacho — Portafolio (luisrc722.github.io)
-// Archivo: script.js
-// Descripción: scripts globales del sitio (inicio dinámico,
-// accesibilidad, eventos de interfaz y utilidades generales).
-// ==========================================================
+/* ==========================================================
+   📜 script.js — Portafolio Luis Roldán Camacho
+   Bootstrap 5.3.8 + funciones utilitarias
+   ========================================================== */
 
-/**
- * Ejecuta las funciones de inicialización cuando el DOM está listo.
- */
+// ----------------------------------------------------------
+// 🕒 1. Insertar año actual automáticamente en el footer
+// ----------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  setCurrentYear();
-  enhanceAnchors();
-  initSmoothScroll();
-  console.log("✅ Portafolio cargado correctamente.");
+  const yearElement = document.getElementById("y");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
 });
 
-/* ==========================================================
-   🕓 Utilidad 1: Año dinámico en el footer
-   ========================================================== */
-function setCurrentYear() {
-  const yearEl = document.getElementById("y");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-}
+// ----------------------------------------------------------
+// 🧭 2. Scroll suave para los enlaces del navbar
+// ----------------------------------------------------------
+document.querySelectorAll('a.nav-link[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 80, // ajuste por navbar fija
+        behavior: "smooth",
+      });
+    }
 
-/* ==========================================================
-   🔗 Utilidad 2: Mejora de enlaces ancla
-   - Evita el salto brusco al navegar por secciones (#id)
-   - Ajusta desplazamiento según el header sticky
-   ========================================================== */
-function enhanceAnchors() {
-  const anchors = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-  anchors.forEach(anchor => {
-    anchor.addEventListener("click", (event) => {
-      const targetId = anchor.getAttribute("href").substring(1);
-      const target = document.getElementById(targetId);
-      if (target) {
-        event.preventDefault();
-        const yOffset = -60; // Compensa el header
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    });
+    // Cerrar menú en versión móvil tras hacer clic
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+    if (navbarCollapse.classList.contains("show")) {
+      new bootstrap.Collapse(navbarCollapse).toggle();
+    }
   });
-}
+});
 
-/* ==========================================================
-   🧭 Utilidad 3: Desplazamiento suave global
-   ========================================================== */
-function initSmoothScroll() {
-  document.documentElement.style.scrollBehavior = "smooth";
-}
+// ----------------------------------------------------------
+// 🔍 3. Resaltado dinámico de sección activa (ScrollSpy custom)
+// ----------------------------------------------------------
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section[id]");
+  const scrollPos = window.scrollY + 100;
 
-/* ==========================================================
-   🌙 Utilidad 4 (opcional): Modo claro/oscuro manual
-   - Base lista, puedes activarla en el futuro
-   ========================================================== */
-function toggleTheme() {
-  const root = document.documentElement;
-  const isDark = root.classList.toggle("light-mode");
-  localStorage.setItem("theme", isDark ? "light" : "dark");
-}
+  sections.forEach((section) => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute("id");
 
-// Cargar tema guardado
-(function loadTheme() {
-  const saved = localStorage.getItem("theme");
-  if (saved === "light") {
-    document.documentElement.classList.add("light-mode");
-  }
-})();
+    const link = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (scrollPos >= top && scrollPos < top + height) {
+      link?.classList.add("active");
+    } else {
+      link?.classList.remove("active");
+    }
+  });
+});
+
+// ----------------------------------------------------------
+// ✨ 4. Microefecto en enlaces externos
+// ----------------------------------------------------------
+document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+  link.addEventListener("mouseenter", () => {
+    link.style.transform = "translateY(-2px)";
+    link.style.transition = "transform 0.15s ease-in-out";
+  });
+  link.addEventListener("mouseleave", () => {
+    link.style.transform = "translateY(0)";
+  });
+});
+
+// ----------------------------------------------------------
+// 📢 5. Log de diagnóstico (opcional)
+// ----------------------------------------------------------
+console.log("✅ Portafolio cargado correctamente — Bootstrap 5.3.8 activo.");
