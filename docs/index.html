@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
+  <!-- ==========================================================
+       🧠 HEAD — Metadatos, SEO, Open Graph y Recursos Globales
+       ========================================================== -->
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luis Roldán Camacho — Portafolio</title>
+    <!-- Codificación y escalabilidad -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- SEO básico -->
-    <meta name="description" content="Portafolio profesional de Luis Roldán Camacho: desarrollo web, e‑commerce headless, WordPress/WooCommerce REST, Next.js, animaciones avanzadas y 3D." />
-    <link rel="canonical" href="https://luisrc722.github.io/" />
+    <meta name="description" content="Portafolio profesional de Luis Roldán Camacho: desarrollo web, e-commerce headless, WordPress/WooCommerce REST, Next.js, TypeScript, animaciones avanzadas y 3D.">
+    <link rel="canonical" href="https://luisrc722.github.io/">
 
-    <!-- Open Graph / Twitter -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Luis Roldán Camacho — Portafolio" />
-    <meta property="og:description" content="Desarrollo web y e‑commerce headless (WordPress/WooCommerce + API REST), Next.js 15, TypeScript, Tailwind, GSAP, Framer Motion, Lenis." />
-    <meta property="og:url" content="https://luisrc722.github.io/" />
-    <meta property="og:image" content="https://luisrc722.github.io/assets/og-cover.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Luis Roldán Camacho — Portafolio">
+    <meta property="og:description" content="Desarrollo web y e-commerce headless (WordPress/WooCommerce + API REST), Next.js 15, Tailwind, GSAP, Framer Motion, Lenis.">
+    <meta property="og:url" content="https://luisrc722.github.io/">
+    <meta property="og:image" content="https://luisrc722.github.io/docs/assets/og-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Iconos -->
-    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate icon" href="/assets/favicon.png" />
+    <!-- Íconos -->
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="./assets/favicon.png">
 
-    <!-- style.css -->
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="./styles.css">
 
-    <!-- Datos estructurados -->
+    <!-- Color del tema en móviles -->
+    <meta name="theme-color" content="#0b0b0c">
+
+    <!-- Datos estructurados Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,24 +41,35 @@
         "https://github.com/luisrc722",
         "https://www.linkedin.com/in/luis-roldan-camacho/"
       ],
-      "jobTitle": "Desarrollador Web / E‑commerce Headless",
+      "jobTitle": "Desarrollador Web / E-commerce Headless",
       "knowsAbout": [
         "Next.js 15", "TypeScript", "TailwindCSS", "GSAP", "Framer Motion", "Lenis",
         "WordPress", "WooCommerce", "API REST", "Headless CMS", "3D Visualization"
       ]
     }
     </script>
+
+    <!-- Título de pestaña -->
+    <title>Luis Roldán Camacho — Portafolio</title>
   </head>
 
+  <!-- ==========================================================
+       💻 BODY — Estructura visual y contenido principal
+       ========================================================== -->
   <body>
-    <!-- Header -->
+
+    <!-- ======================
+         🔝 HEADER / NAVEGACIÓN
+         ====================== -->
     <header>
       <div class="container nav">
         <a class="brand" href="#" aria-label="Inicio">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h5l2-3 3 6 2-3h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 12h5l2-3 3 6 2-3h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
           <span>luisrc722</span>
         </a>
-        <nav class="menu" aria-label="Principal">
+        <nav class="menu" aria-label="Navegación principal">
           <a href="#proyectos" class="ghost">Proyectos</a>
           <a href="#experiencia" class="ghost">Experiencia</a>
           <a href="#contacto" class="ghost">Contacto</a>
@@ -61,18 +78,24 @@
       </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- ======================
+         🚀 HERO / PRESENTACIÓN
+         ====================== -->
+    <section class="hero" id="inicio">
       <div class="container">
-        <h1>Desarrollo web y e‑commerce headless con enfoque en rendimiento, seguridad y DX.</h1>
+        <h1>Desarrollo web y e-commerce headless con enfoque en rendimiento, seguridad y DX.</h1>
         <p>
           Soy <strong>Luis Roldán Camacho</strong>. Construyo soluciones modernas para tiendas en línea y
-          plataformas de contenido: <em>WordPress/WooCommerce (Headless)</em> con API REST, front‑ends basados en <em>Next.js 15 + TypeScript</em>, diseño accesible y animaciones de alto nivel. También experimento con visualización 3D.
+          plataformas de contenido: <em>WordPress/WooCommerce (Headless)</em> con API REST, front-ends basados en <em>Next.js 15 + TypeScript</em>, diseño accesible y animaciones de alto nivel. También experimento con visualización 3D.
         </p>
+
+        <!-- Botones principales -->
         <div class="row mt-3">
           <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
-          <a class="btn btn-ghost" href="/cv/Luis_Roldan_CV.pdf" target="_blank" rel="noopener">Descargar CV</a>
+          <a class="btn btn-ghost" href="./cv/Luis_Roldan_CV.pdf" target="_blank" rel="noopener">Descargar CV</a>
         </div>
+
+        <!-- Tecnologías principales -->
         <div class="badges">
           <span class="badge">Next.js 15</span>
           <span class="badge">TypeScript</span>
@@ -84,32 +107,34 @@
       </div>
     </section>
 
-    <!-- Proyectos -->
+    <!-- ======================
+         🧩 PROYECTOS DESTACADOS
+         ====================== -->
     <section id="proyectos">
       <div class="container">
         <header>
           <h2>Proyectos destacados</h2>
-          <p>Selección de repositorios y trabajos relacionados con e‑commerce headless, front‑end moderno y utilidades.</p>
+          <p>Selección de repositorios y trabajos relacionados con e-commerce headless, front-end moderno y utilidades.</p>
         </header>
 
         <div class="grid grid-cols-3">
-          <!-- BARBARIAN -->
+          <!-- Proyecto 1 -->
           <article class="card">
-            <img alt="Barbarian E‑commerce" src="/assets/projects/barbarian-cover.jpg" onerror="this.style.display='none'" />
+            <img alt="Barbarian E-commerce" src="./assets/projects/barbarian-cover.jpg" onerror="this.style.display='none'">
             <div class="body">
-              <div class="kicker">E‑commerce Headless</div>
+              <div class="kicker">E-commerce Headless</div>
               <h3 class="mb-0">Barbarian</h3>
-              <p class="muted mb-0">Plataforma para equipo de gimnasio. Backend WordPress + WooCommerce (REST), front‑end moderno, enfoque en rendimiento y seguridad.</p>
+              <p class="muted mb-0">Plataforma para equipo de gimnasio. Backend WordPress + WooCommerce (REST), front-end moderno, enfoque en rendimiento y seguridad.</p>
               <div class="row mt-3">
-                <a class="pill" href="https://barbarian.com.mx" target="_blank" rel="noopener" aria-label="Sitio Barbarian">Sitio</a>
-                <a class="pill" href="https://github.com/andrvvv/BARBARIAN" target="_blank" rel="noopener" aria-label="Repositorio BARBARIAN">Repo</a>
+                <a class="pill" href="https://barbarian.com.mx" target="_blank" rel="noopener">Sitio</a>
+                <a class="pill" href="https://github.com/andrvvv/BARBARIAN" target="_blank" rel="noopener">Repo</a>
               </div>
             </div>
           </article>
 
-          <!-- pythontest -->
+          <!-- Proyecto 2 -->
           <article class="card">
-            <img alt="Utilidades Python" src="/assets/projects/python-utils.jpg" onerror="this.style.display='none'" />
+            <img alt="Utilidades Python" src="./assets/projects/python-utils.jpg" onerror="this.style.display='none'">
             <div class="body">
               <div class="kicker">Utilidades</div>
               <h3 class="mb-0">pythontest</h3>
@@ -120,16 +145,16 @@
             </div>
           </article>
 
-          <!-- GitHub Pages -->
+          <!-- Proyecto 3 -->
           <article class="card">
-            <img alt="Sitio personal" src="/assets/projects/site-cover.jpg" onerror="this.style.display='none'" />
+            <img alt="Sitio personal" src="./assets/projects/site-cover.jpg" onerror="this.style.display='none'">
             <div class="body">
               <div class="kicker">Web Personal</div>
               <h3 class="mb-0">luisrc722.github.io</h3>
               <p class="muted mb-0">Sitio estático optimizado, accesible y con buenas prácticas SEO. Contenido técnico y bitácora de proyectos.</p>
               <div class="row mt-3">
                 <a class="pill" href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" rel="noopener">Repositorio</a>
-                <a class="pill" href="#" aria-disabled="true">Actual</a>
+                <span class="pill" aria-disabled="true">Actual</span>
               </div>
             </div>
           </article>
@@ -137,7 +162,9 @@
       </div>
     </section>
 
-    <!-- Experiencia / Stack -->
+    <!-- ======================
+         ⚙️ EXPERIENCIA / STACK
+         ====================== -->
     <section id="experiencia">
       <div class="container">
         <header>
@@ -173,8 +200,8 @@
               <h3 class="mb-0">Calidad y despliegue</h3>
               <ul class="list">
                 <li>Convenciones: Conventional Commits, documentación clara y plantillas.</li>
-                <li>Pruebas: linter, pruebas básicas y verificación manual orientada a negocio.</li>
-                <li>Hosting compartido (Hostinger) con optimizaciones para sitios estáticos.</li>
+                <li>Pruebas: linter, verificación manual y validaciones W3C.</li>
+                <li>Hosting estático (GitHub Pages) optimizado para SEO.</li>
               </ul>
             </div>
           </article>
@@ -193,12 +220,14 @@
       </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- ======================
+         ✉️ CONTACTO / REDES
+         ====================== -->
     <section id="contacto">
       <div class="container">
         <header>
           <h2>Contacto</h2>
-          <p>Abierto a colaborar en proyectos web y e‑commerce. Respuesta habitual en 24–48 h.</p>
+          <p>Abierto a colaborar en proyectos web y e-commerce. Respuesta habitual en 24–48 h.</p>
         </header>
 
         <div class="card">
@@ -216,27 +245,28 @@
           </div>
         </div>
 
-        <p class="muted mt-4">También puedes abrir un issue en <a href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" rel="noopener">este repositorio</a> para propuestas o mejoras.</p>
+        <p class="muted mt-4">
+          También puedes abrir un issue en
+          <a href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" rel="noopener">este repositorio</a>.
+        </p>
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ======================
+         ⚓ FOOTER / CRÉDITOS
+         ====================== -->
     <footer>
       <div class="container foot">
         <div class="row between center">
           <small>© <span id="y"></span> Luis Roldán Camacho.</small>
-          <small class="muted">Hecho con HTML/CSS nativo · GitHub Pages</small>
+          <small class="muted">Hecho con HTML, CSS y JS nativo · GitHub Pages</small>
         </div>
       </div>
     </footer>
 
-    <script>
-      // Año dinámico y mejora de accesibilidad en enlaces deshabilitados
-      document.getElementById('y').textContent = new Date().getFullYear();
-      document.querySelectorAll('[aria-disabled="true"]').forEach(el => {
-        el.setAttribute('tabindex', '-1');
-        el.addEventListener('click', e => e.preventDefault());
-      });
-    </script>
+    <!-- ======================
+         📜 SCRIPT EXTERNO
+         ====================== -->
+    <script src="./script.js" defer></script>
   </body>
 </html>
