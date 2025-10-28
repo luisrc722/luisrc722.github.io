@@ -1,55 +1,364 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Políticas de Privacidad</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <h1>Políticas de Privacidad</h1>
-    <p class="lead">Políticas por aplicación — desarrollador independiente</p>
-  </header>
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luis Roldán Camacho — Portafolio</title>
 
-  <main id="apps" class="container">
-    <!-- Las tarjetas se insertan por JS -->
-  </main>
+    <!-- SEO básico -->
+    <meta name="description" content="Portafolio profesional de Luis Roldán Camacho: desarrollo web, e‑commerce headless, WordPress/WooCommerce REST, Next.js, animaciones avanzadas y 3D." />
+    <link rel="canonical" href="https://luisrc722.github.io/" />
 
-  <footer class="site-footer">
-    <small>Última actualización: <span id="last-update">2025-08-18</span> · Contacto: <a href="mailto:luisrc722@gmail.com">luisrc722@gmail.com</a></small>
-  </footer>
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Luis Roldán Camacho — Portafolio" />
+    <meta property="og:description" content="Desarrollo web y e‑commerce headless (WordPress/WooCommerce + API REST), Next.js 15, TypeScript, Tailwind, GSAP, Framer Motion, Lenis." />
+    <meta property="og:url" content="https://luisrc722.github.io/" />
+    <meta property="og:image" content="https://luisrc722.github.io/assets/og-cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <script>
-    // Lista manual (rápida). Para automatizar, reemplaza este array con fetch('/policies.json')
-    /*
-    const apps = [
-      {
-        app_name: "Mi App Ejemplo",
-        slug: "mi-app-ejemplo",
-        platform: "android",
-        version: "0.1.0",
-        last_updated: "2025-08-18",
-        contact_email: "luisrc722@gmail.com"
+    <!-- Iconos -->
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/assets/favicon.png" />
+
+    <!-- Tipografía del sistema para rendimiento -->
+    <style>
+      :root {
+        --bg: #0b0b0c;
+        --surface: #121214;
+        --text: #eaeaea;
+        --muted: #b4b4b4;
+        --primary: #7dd3fc; /* azul cian suave */
+        --accent: #a78bfa;  /* violeta suave */
+        --ok: #34d399;
+        --warn: #fbbf24;
+        --danger: #f87171;
+        --ring: 0 0 0 3px rgba(125, 211, 252, 0.35);
+        --radius: 16px;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+        --maxw: 1120px;
       }
-    ];
-    */
-    
-    fetch('policies.json').then(r => r.json()).then(apps => { /* renderizar */ })
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f6f7f8;
+          --surface: #ffffff;
+          --text: #171717;
+          --muted: #505050;
+          --shadow: 0 10px 30px rgba(0,0,0,.08);
+          --ring: 0 0 0 3px rgba(79, 70, 229, 0.25);
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1200px 600px at 80% -10%, rgba(167,139,250,.15), transparent 60%),
+                    radial-gradient(900px 600px at 0% 110%, rgba(125,211,252,.12), transparent 60%),
+                    var(--bg);
+        line-height: 1.6;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
 
-    
-    const container = document.getElementById('apps');
+      .container { width: min(100%, var(--maxw)); margin-inline: auto; padding-inline: 1rem; }
 
-    apps.forEach(a => {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.innerHTML = `
-        <h2>${a.app_name}</h2>
-        <p class="meta">Plataforma: ${a.platform} · Versión: ${a.version} · Actualizado: ${a.last_updated}</p>
-        <p><a href="../policies/apps/${a.slug}/PRIVACY.md">Ver política</a> · <a href="../policies/apps/${a.slug}/metadata.yaml">Metadatos</a></p>
-      `;
-      container.appendChild(card);
-    });
-  </script>
-</body>
+      /* Header */
+      header {
+        position: sticky; top: 0; z-index: 50;
+        backdrop-filter: blur(8px);
+        background: color-mix(in oklab, var(--bg) 70%, transparent);
+        border-bottom: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+      }
+      .nav { display: flex; align-items: center; justify-content: space-between; padding: .75rem 0; }
+      .brand { display: flex; align-items: center; gap: .75rem; font-weight: 700; letter-spacing: .2px; }
+      .brand svg { width: 28px; height: 28px; }
+      .menu { display: flex; gap: 1rem; }
+      .menu a { opacity: .9; }
+      .menu a:hover { opacity: 1; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+      .cta {
+        padding: .55rem .9rem; border-radius: 999px; background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+      }
+      .cta:hover { outline: var(--ring); }
+
+      /* Hero */
+      .hero { padding: 5rem 0 3rem; }
+      .hero h1 { font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem); line-height: 1.15; margin: 0 0 .8rem; }
+      .hero p { max-width: 70ch; color: var(--muted); margin: 0 0 1.2rem; }
+      .badges { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+      .badge { padding: .35rem .6rem; border-radius: 999px; background: color-mix(in oklab, var(--surface) 90%, transparent); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); font-size: .9rem; }
+
+      /* Section */
+      section { padding: 3rem 0; }
+      section header h2 { font-size: clamp(1.2rem, .8vw + 1rem, 1.6rem); margin: 0 0 .5rem; }
+      section header p { color: var(--muted); margin: 0 0 1.6rem; max-width: 70ch; }
+
+      /* Grid */
+      .grid { display: grid; gap: 1rem; }
+      @media (min-width: 768px) { .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+      @media (min-width: 640px) { .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+      /* Cards */
+      .card { background: var(--surface); border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius: var(--radius); box-shadow: var(--shadow); overflow: clip; display: flex; flex-direction: column; }
+      .card .body { padding: 1rem 1rem 1.25rem; display: grid; gap: .5rem; }
+      .kicker { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+      .pill { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; padding: .35rem .6rem; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); background: color-mix(in oklab, var(--surface) 90%, transparent); }
+
+      /* Listas */
+      .list { display: grid; gap: .6rem; margin: 0; padding-left: 1rem; }
+      .list li { margin-left: .25rem; }
+
+      /* Footer */
+      footer { border-top: 1px solid color-mix(in oklab, var(--text) 12%, transparent); background: color-mix(in oklab, var(--bg) 85%, transparent); }
+      .foot { display: grid; gap: .5rem; padding: 1.25rem 0; color: var(--muted); }
+      .foot a { color: var(--text); }
+
+      /* Utilidades */
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+      .row { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; }
+      .between { justify-content: space-between; }
+      .center { align-items: center; }
+      .ghost { opacity: .9; }
+      .ghost:hover { opacity: 1; }
+      .muted { color: var(--muted); }
+      .nowrap { white-space: nowrap; }
+      .mt-2 { margin-top: .5rem; }
+      .mt-3 { margin-top: .75rem; }
+      .mt-4 { margin-top: 1rem; }
+      .mt-6 { margin-top: 1.5rem; }
+      .mb-0 { margin-bottom: 0; }
+      .mb-2 { margin-bottom: .5rem; }
+      .py-0 { padding-top: 0; padding-bottom: 0; }
+      .py-1 { padding-block: .25rem; }
+      .py-2 { padding-block: .5rem; }
+      .py-3 { padding-block: .75rem; }
+      .px-2 { padding-inline: .5rem; }
+      .px-3 { padding-inline: .75rem; }
+      .px-4 { padding-inline: 1rem; }
+      .shadow-none { box-shadow: none; }
+      .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1rem; border-radius: 10px; border: 1px solid color-mix(in oklab, var(--text) 12%, transparent); background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 60%, transparent), var(--surface)); box-shadow: var(--shadow); }
+      .btn:hover { outline: var(--ring); }
+      .btn-primary { background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 35%, var(--surface)), var(--surface)); }
+      .btn-ghost { background: transparent; box-shadow: none; }
+
+      /* Accesibilidad: focus */
+      :focus-visible { outline: var(--ring); border-radius: 8px; }
+    </style>
+
+    <!-- Datos estructurados -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luis Roldán Camacho",
+      "url": "https://luisrc722.github.io/",
+      "sameAs": [
+        "https://github.com/luisrc722",
+        "https://www.linkedin.com/in/luis-roldan-camacho/"
+      ],
+      "jobTitle": "Desarrollador Web / E‑commerce Headless",
+      "knowsAbout": [
+        "Next.js 15", "TypeScript", "TailwindCSS", "GSAP", "Framer Motion", "Lenis",
+        "WordPress", "WooCommerce", "API REST", "Headless CMS", "3D Visualization"
+      ]
+    }
+    </script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#" aria-label="Inicio">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h5l2-3 3 6 2-3h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>luisrc722</span>
+        </a>
+        <nav class="menu" aria-label="Principal">
+          <a href="#proyectos" class="ghost">Proyectos</a>
+          <a href="#experiencia" class="ghost">Experiencia</a>
+          <a href="#contacto" class="ghost">Contacto</a>
+          <a class="cta" href="https://github.com/luisrc722" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Desarrollo web y e‑commerce headless con enfoque en rendimiento, seguridad y DX.</h1>
+        <p>
+          Soy <strong>Luis Roldán Camacho</strong>. Construyo soluciones modernas para tiendas en línea y
+          plataformas de contenido: <em>WordPress/WooCommerce (Headless)</em> con API REST, front‑ends basados en <em>Next.js 15 + TypeScript</em>, diseño accesible y animaciones de alto nivel. También experimento con visualización 3D.
+        </p>
+        <div class="row mt-3">
+          <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+          <a class="btn btn-ghost" href="/cv/Luis_Roldan_CV.pdf" target="_blank" rel="noopener">Descargar CV</a>
+        </div>
+        <div class="badges">
+          <span class="badge">Next.js 15</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">WooCommerce REST</span>
+          <span class="badge">GSAP / Framer Motion</span>
+          <span class="badge">Accesibilidad</span>
+          <span class="badge">SEO Técnico</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <div class="container">
+        <header>
+          <h2>Proyectos destacados</h2>
+          <p>Selección de repositorios y trabajos relacionados con e‑commerce headless, front‑end moderno y utilidades.</p>
+        </header>
+
+        <div class="grid grid-cols-3">
+          <!-- BARBARIAN -->
+          <article class="card">
+            <img alt="Barbarian E‑commerce" src="/assets/projects/barbarian-cover.jpg" onerror="this.style.display='none'" />
+            <div class="body">
+              <div class="kicker">E‑commerce Headless</div>
+              <h3 class="mb-0">Barbarian</h3>
+              <p class="muted mb-0">Plataforma para equipo de gimnasio. Backend WordPress + WooCommerce (REST), front‑end moderno, enfoque en rendimiento y seguridad.</p>
+              <div class="row mt-3">
+                <a class="pill" href="https://barbarian.com.mx" target="_blank" rel="noopener" aria-label="Sitio Barbarian">Sitio</a>
+                <a class="pill" href="https://github.com/andrvvv/BARBARIAN" target="_blank" rel="noopener" aria-label="Repositorio BARBARIAN">Repo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- pythontest -->
+          <article class="card">
+            <img alt="Utilidades Python" src="/assets/projects/python-utils.jpg" onerror="this.style.display='none'" />
+            <div class="body">
+              <div class="kicker">Utilidades</div>
+              <h3 class="mb-0">pythontest</h3>
+              <p class="muted mb-0">Pequeños programas de conversión y pruebas. Enfoque en scripts prácticos y experimentación.</p>
+              <div class="row mt-3">
+                <a class="pill" href="https://github.com/luisrc722/pythontest" target="_blank" rel="noopener">Repositorio</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- GitHub Pages -->
+          <article class="card">
+            <img alt="Sitio personal" src="/assets/projects/site-cover.jpg" onerror="this.style.display='none'" />
+            <div class="body">
+              <div class="kicker">Web Personal</div>
+              <h3 class="mb-0">luisrc722.github.io</h3>
+              <p class="muted mb-0">Sitio estático optimizado, accesible y con buenas prácticas SEO. Contenido técnico y bitácora de proyectos.</p>
+              <div class="row mt-3">
+                <a class="pill" href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" rel="noopener">Repositorio</a>
+                <a class="pill" href="#" aria-disabled="true">Actual</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencia / Stack -->
+    <section id="experiencia">
+      <div class="container">
+        <header>
+          <h2>Experiencia y stack</h2>
+          <p>Trabajo con tecnologías modernas orientadas a rendimiento, seguridad y mantenibilidad, siguiendo principios SOLID y patrones de arquitectura.</p>
+        </header>
+
+        <div class="grid grid-cols-2">
+          <article class="card">
+            <div class="body">
+              <h3 class="mb-0">Backend Headless</h3>
+              <ul class="list">
+                <li>WordPress + WooCommerce (REST), endpoints personalizados y hardening básico.</li>
+                <li>Integración con APIs logísticas nacionales y cálculo de envío por peso/volumen.</li>
+                <li>Optimización de CORS, seguridad de endpoints y auditoría mínima.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="body">
+              <h3 class="mb-0">Frontend Moderno</h3>
+              <ul class="list">
+                <li>Next.js 15 (App Router), TypeScript, arquitectura modular y DX.</li>
+                <li>TailwindCSS, diseño accesible, tokens y theming.</li>
+                <li>Animaciones con GSAP/Framer Motion y scroll suave con Lenis.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="body">
+              <h3 class="mb-0">Calidad y despliegue</h3>
+              <ul class="list">
+                <li>Convenciones: Conventional Commits, documentación clara y plantillas.</li>
+                <li>Pruebas: linter, pruebas básicas y verificación manual orientada a negocio.</li>
+                <li>Hosting compartido (Hostinger) con optimizaciones para sitios estáticos.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="body">
+              <h3 class="mb-0">Exploración 3D</h3>
+              <ul class="list">
+                <li>Visualización de modelos (Three.js), exportación GLTF/GLB.</li>
+                <li>Mapeos de color y propiedades; análisis simple de mallas.</li>
+                <li>Integración futura con catálogos de producto.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+      <div class="container">
+        <header>
+          <h2>Contacto</h2>
+          <p>Abierto a colaborar en proyectos web y e‑commerce. Respuesta habitual en 24–48 h.</p>
+        </header>
+
+        <div class="card">
+          <div class="body">
+            <div class="row between center">
+              <div>
+                <div class="kicker">Disponibilidad</div>
+                <p class="mb-0 muted">Remoto o híbrido · México (CDMX)</p>
+              </div>
+              <div class="row">
+                <a class="btn" href="mailto:luisrc722@users.noreply.github.com">Enviar correo</a>
+                <a class="btn" href="https://www.linkedin.com/in/luis-roldan-camacho/" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="muted mt-4">También puedes abrir un issue en <a href="https://github.com/luisrc722/luisrc722.github.io" target="_blank" rel="noopener">este repositorio</a> para propuestas o mejoras.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container foot">
+        <div class="row between center">
+          <small>© <span id="y"></span> Luis Roldán Camacho.</small>
+          <small class="muted">Hecho con HTML/CSS nativo · GitHub Pages</small>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Año dinámico y mejora de accesibilidad en enlaces deshabilitados
+      document.getElementById('y').textContent = new Date().getFullYear();
+      document.querySelectorAll('[aria-disabled="true"]').forEach(el => {
+        el.setAttribute('tabindex', '-1');
+        el.addEventListener('click', e => e.preventDefault());
+      });
+    </script>
+  </body>
 </html>
