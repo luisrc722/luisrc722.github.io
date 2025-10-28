@@ -1,32 +1,43 @@
 /* ==========================================================
-   🎬 script.js — Portafolio Luis Roldán Camacho (versión animada)
-   Animaciones cliente-side con IntersectionObserver + transiciones GPU
+   ⚡ script.js — Portafolio Luis Roldán Camacho
+   Versión con transiciones entre secciones (SPA-like)
    ========================================================== */
 
-// ----------------------------------------------------------
-// 🕒 1. Insertar año actual automáticamente en el footer
-// ----------------------------------------------------------
+/* ----------------------------------------------------------
+   🕒 1. Insertar año actual en el footer
+   ---------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
-  const yearElement = document.getElementById("y");
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  const year = document.getElementById("y");
+  if (year) year.textContent = new Date().getFullYear();
 });
 
-// ----------------------------------------------------------
-// 🧭 2. Scroll suave entre secciones (navbar)
-// ----------------------------------------------------------
-document.querySelectorAll('a.nav-link[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
+/* ----------------------------------------------------------
+   🧭 2. Scroll suave y control de navegación
+   ---------------------------------------------------------- */
+const navLinks = document.querySelectorAll('a.nav-link[href^="#"]');
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 80,
-        behavior: "smooth",
-      });
-    }
+    const targetId = link.getAttribute("href");
+    const target = document.querySelector(targetId);
+    if (!target) return;
 
+    // Aplicar transición de salida
+    const activeSection = document.querySelector("section.active");
+    if (activeSection) activeSection.classList.remove("active", "fade-in-section");
+    target.classList.add("fade-in-section");
+    setTimeout(() => target.classList.add("active"), 100);
+
+    // Scroll suave
+    window.scrollTo({
+      top: target.offsetTop - 80,
+      behavior: "smooth",
+    });
+
+    // Actualiza la URL sin recargar
+    history.pushState(null, "", targetId);
+
+    // Cierra el menú móvil si está abierto
     const navbarCollapse = document.querySelector(".navbar-collapse");
     if (navbarCollapse.classList.contains("show")) {
       new bootstrap.Collapse(navbarCollapse).toggle();
@@ -34,9 +45,24 @@ document.querySelectorAll('a.nav-link[href^="#"]').forEach((anchor) => {
   });
 });
 
-// ----------------------------------------------------------
-// 🔍 3. Resaltado dinámico de sección activa (ScrollSpy personalizado)
-// ----------------------------------------------------------
+/* ----------------------------------------------------------
+   🧩 3. Animaciones por scroll (IntersectionObserver)
+   ---------------------------------------------------------- */
+const observerOptions = { threshold: 0.2 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll(".fade-up, .fade-left, .fade-right").forEach((el) => observer.observe(el));
+
+/* ----------------------------------------------------------
+   🔍 4. ScrollSpy simple (destaca la sección activa)
+   ---------------------------------------------------------- */
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section[id]");
   const scrollPos = window.scrollY + 100;
@@ -54,9 +80,9 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// ----------------------------------------------------------
-// ✨ 4. Microefecto hover en enlaces externos
-// ----------------------------------------------------------
+/* ----------------------------------------------------------
+   ✨ 5. Hover sutil en enlaces externos
+   ---------------------------------------------------------- */
 document.querySelectorAll('a[target="_blank"]').forEach((link) => {
   link.addEventListener("mouseenter", () => {
     link.style.transform = "translateY(-2px)";
@@ -67,46 +93,27 @@ document.querySelectorAll('a[target="_blank"]').forEach((link) => {
   });
 });
 
-// ----------------------------------------------------------
-// 🪄 5. Animaciones cliente-side (IntersectionObserver)
-// ----------------------------------------------------------
+/* ----------------------------------------------------------
+   🎞️ 6. Transición general de secciones (SPA-like)
+   ---------------------------------------------------------- */
+// Detectar cambios del historial del navegador
+window.addEventListener("popstate", () => {
+  const hash = window.location.hash || "#inicio";
+  const target = document.querySelector(hash);
+  if (!target) return;
 
-// Configuración de las animaciones (duración y umbral)
-const observerOptions = {
-  threshold: 0.2,
-  rootMargin: "0px 0px -50px 0px",
-};
+  document.querySelectorAll("section.active").forEach((s) =>
+    s.classList.remove("active", "fade-in-section")
+  );
+  target.classList.add("fade-in-section");
+  setTimeout(() => target.classList.add("active"), 100);
+});
 
-// Función para aplicar clases de animación al entrar en viewport
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target); // deja de observar para mejorar rendimiento
-    }
-  });
-}, observerOptions);
-
-// Selecciona todos los elementos animables
-const animatedElements = document.querySelectorAll(
-  ".fade-up, .fade-left, .fade-right"
-);
-
-animatedElements.forEach((el) => observer.observe(el));
-
-// ----------------------------------------------------------
-// ⚡ 6. Efecto inicial de carga (Hero + Navbar)
-// ----------------------------------------------------------
+// Efecto de entrada inicial
 window.addEventListener("load", () => {
   const hero = document.querySelector("#inicio");
-  const navbar = document.querySelector("nav.navbar");
-
   if (hero) {
-    hero.classList.add("fade-in");
+    hero.classList.add("fade-in-section", "active");
   }
-  if (navbar) {
-    navbar.classList.add("fade-down");
-  }
-
-  console.log("✅ Animaciones inicializadas correctamente (cliente-side).");
+  console.log("✅ Animaciones SPA-like inicializadas correctamente.");
 });
